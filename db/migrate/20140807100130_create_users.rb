@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :position
       t.string :department
-      t.integer :salary
+      t.string :salary
       t.timestamps
     end
   end
