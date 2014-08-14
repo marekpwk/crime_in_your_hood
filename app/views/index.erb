@@ -1,19 +1,10 @@
 <div class="container">
   <h1>Welcome to Crime awareness!</h1>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Department</th>
-        <th>Salary</th>
-      </tr>
+  <script>
+    d3.csv("/csv/salaries.csv", function(data){
+      console.log(data)
+  })
+  </script>
 
-    <%@records.each do |rec|%>
-      <tr><td><%=rec.name%></td>
-      <td><%=rec.position%></td>
-      <td><%=rec.department%></td>
-      <td><%=rec.salary%></td></tr>
-      <%end%>
-    </table>
 
 </div>
