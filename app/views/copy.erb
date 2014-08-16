@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Welcome to Crime awareness!</h1>
+  <script>
+  var width = 800,
+      height = 800,
+      padding = 50;
+
+    d3.csv("/csv/salaries.csv", function(data){
+
+        var map = data.map(function(i) {
+          var salary = i.salary.slice(1, i.salary.length);
+
+          return parseInt(salary);
+
+        })
+        // console.log(map)
+        var histogram = d3.layout.histogram()
+                          .bins(15)
+                          (map)
+
+        var canvas = d3.select("body").append("svg")
+                    .attr("width", 500)
+                    .attr("height", 500)
+
+
+        var bars = canvas.selectAll(".bar")
+                      .data(histogram)
+                      .enter()
+                      .append("g")
+
+        bars.append("rect")
+            .attr("x", function(d){
+              debugger;
+              return d.x/10000; })
+            .attr("y", 0)
+            .attr("width", function(d){ return d.dx; })
+            .attr("height", function(d){ return d.y/10; })
+
+      })
+  </script>
+
+
+</div>
